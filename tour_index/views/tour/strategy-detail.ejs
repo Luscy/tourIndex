@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <title>广东省自助旅游咨询网</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keyworks" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="luoxing" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="/public/tour_res/css/app/header.css">
+        <link rel="stylesheet" type="text/css" href="/public/tour_res/css/app/strategy-detail.css">
+    </head>
+    <body>
+        <header class="header">
+            <% include include/navigator.ejs %>
+        </header>
+        <div role="content" class="content">
+            <div role="container" class="container">
+                <div class="content-header">
+                    <div class="travel-header">
+                        <span class="fly-icon"></span>
+                        <span class="header-text">
+                            <span></span>
+                            <span></span><span></span>
+                        </span>
+                    </div>
+                    <div class="sub-header">
+                        <a href="#" class="word-icon"></a>
+                        <a href="/tour/strategy" class="rewrite-travel">编辑行程</a>
+                    </div>
+                </div>
+                <div class="survey">
+                    <div class="survey-header">
+                        <span class="survey-text">行程概览</span>
+                        <div class="map-container">
+                            <i class="map-icon"></i>
+                            <a href="/tour/strategy-map" class="map-link">行程地图</a>
+                        </div>
+                    </div>
+                    <div class="survey-content">
+                        <div class="survey-list">
+                        </div>
+                    </div>
+                </div>
+                <div class="travel-detail">
+                </div>
+            </div>
+        </div>
+        <% include include/footer.ejs %>
+    </body>
+    <!--******载入js********-->
+    <script src="/public/tour_res/js/libs/zepto/1.1.6/zepto-1.1.6.js"></script>
+    <script src="/public/tour_res/js/libs/zepto/1.1.6/touch-1.1.6.js"></script>
+    <script src="/public/tour_res/js/libs/jquery/2.1.3/jquery-2.1.3.min.js"></script>
+	<script src="/public/javascripts/common.js"></script>
+	<script src="/public/tour_res/js/app/strategy-detail.js"></script>
+</html>

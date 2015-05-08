@@ -1,0 +1,190 @@
+@image: "../../img";
+.content {
+    max-width: 1285px;
+    width: 95%;
+    margin: 30px auto;
+    overflow: hidden;
+    border: 1px solid #d3d3d3;
+    .container {
+        margin: 22px 32px;
+        .content-header {
+            height: 65px;
+            .travel-header {
+                display: inline-block;
+                float: left;
+                .fly-icon {
+                    display: inline-block;
+                    width: 65px;
+                    height: 65px;
+                    background: url("@{image}/icon/travel-plan-icon.png") center center no-repeat;
+                    background-size: 100% auto;
+                }
+                .header-text {
+                    font-size: 3em;
+                    color: #666;
+                    margin-left: 10px;
+                    line-height: 2.5em;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+            }
+            .sub-header {
+                display: inline-block;
+                float: right;
+                padding-top: 15px;
+                .word-icon {
+                    display: inline-block;
+                    width: 46px;
+                    height: 46px;
+                    border: 1px solid #d3d3d3;
+                    border-radius: 4px;
+                    background: url("@{image}/icon/word-icon.png") center center no-repeat;
+                    background-position: 1px -4px;
+                    background-size: 100% auto;
+                    vertical-align: bottom;
+                    &:hover {
+                        background: url("@{image}/icon/word-icon.png") center center no-repeat;
+                        background-position: 1px -90px;
+                        background-size: 100% auto;
+                    }
+                }
+                .rewrite-travel {
+                    display: inline-block;
+                    width: 114px;
+                    height: 30px;
+                    background: #1ad0f7;
+                    border-radius: 4px;
+                    text-align: center;
+                    line-height: 30px;
+                    font-size: 1.8em;
+                    color: #fff;
+                    margin-left: 20px;
+                    &:hover {
+                        background: #22898f;
+                    }
+                }
+            }
+        }
+        .survey {
+            margin-top: 10px;
+            border: 1px solid #ececec;
+            border-radius: 4px;
+            .survey-header {
+                background: #ececec;
+                height: 48px;
+                padding: 10px 20px;
+                .survey-text {
+                    font-size: 2em;
+                    color: #333;
+                    line-height: 45px;
+                    float: left;
+                }
+                .map-container {
+                    float: right;
+                    vertical-align: bottom;
+                    padding-top: 13px;
+                    .map-icon {
+                        display: inline-block;
+                        background: url("@{image}/icon/location-icon.png") center center no-repeat;
+                        background-size: 100% auto;
+                        width: 15px;
+                        height: 17px;
+                    }
+                    .map-link {
+                        font-size: 1.5em;
+                        color: #666;
+                        padding: 0px 5px;
+                        line-height: 20px;
+                        &:hover {
+                            color: #ff8a9b;
+                        }
+                    }
+                }
+            }
+            .survey-content {
+                padding: 10px 20px;
+                .survey-item {
+                    margin-top: 10px;
+                    .survey-number {
+                        display: inline-block;
+                        background: #7fc1c5;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 15px;
+                        font-size: 1.5em;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 30px;
+                        vertical-align: top;
+                    }
+                    .survey-info {
+                        display: inline-block;
+                        color: #666;
+                        font-size: 1.3em;
+                        margin: 5px 10px;
+                        .survey-city {
+                            font-size: 1.4em;
+                            margin-bottom: 10px;
+                        }
+                        .survey-sight {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        .travel-detail {
+            margin: 25px 0px;
+            .travel-item {
+                margin-top: 35px;
+                .travel-header {
+                    font-size: 2.3em;
+                    color: #333;
+                    .travel-number {
+                        display: inline-block;
+                        background: #7fc1c5;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 12px;
+                        font-size: 0.5em;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 27px;
+                        vertical-align: top;
+                    }
+                    .city-syn {
+                        color: #bfbfbf;
+                    }
+                }
+                .sight-detail {
+                    margin: 5px 25px;
+                    .sight-item {
+                        margin-top: 13px;
+                        font-size: 2em;
+                        color: #555;
+                    }
+                    .sight-header {
+                        font-size: 0.9em;
+                    }
+                    .sight-info {
+                        margin: 5px 15px;
+                        font-size: 0.7em;
+                        .sight-img {
+                            width: 25%;
+                            height: 30%;
+                            max-width: 230px;
+                            max-height: 153px;
+                            display: inline-block;
+                        }
+                        .sight-intro {
+                            display: inline-block;
+                            margin: 20px;
+                            vertical-align: top;
+                            line-height: 35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

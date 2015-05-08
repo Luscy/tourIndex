@@ -1,0 +1,16 @@
+{
+  "name": "tour",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^2.1.4",
+    "express": "3.2.6",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.10.1",
+    "mysql": "^2.5.4",
+    "request": "^2.53.0"
+  }
+}

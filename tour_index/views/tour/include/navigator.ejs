@@ -1,0 +1,29 @@
+<nav class="nav">
+    <a href="/tour" class="nav-logo">广东省自助旅游咨询网</a>
+    <ul class="nav-bar">
+        <li class="nav-home">
+            <a href="/tour" <%if (nav=="index") { %>class="nav-active"<% } %>>首页</a>
+        </li>
+        <li class="nav-plan">
+            <a href="/tour/strategy" <%if (nav=="strategy") { %>class="nav-active"<% } %>>攻略</a>
+        </li>
+        <li class="nav-ticket">
+            <a href="#">门票</a>
+        </li>
+        <li class="nav-hotel">
+            <a href="#">酒店</a>
+        </li>
+        <li class="nav-article">
+            <a href="#">驴友推荐</a>
+        </li>
+    </ul>
+    <div class="nav-login">
+	    <i class="nav-user-icon"></i>
+	    <% if (session.user) { %>
+	    	<a href="/tour/logout" class="nav-user-login">退出</a>
+		<% } else { %>
+			<a href="/tour/login" class="nav-user-login">登录 |</a>
+			<a href="/tour/login#signup" class="nav-user-register">注册</a>
+		<% } %>
+    </div>
+</nav>

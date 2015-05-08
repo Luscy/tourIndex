@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>广东省自助旅游咨询网</title>
+	<meta charset="UTF-8">
+  	<meta name="Author" content="李罗杏">
+  	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="/public/tour_res/css/app/login.css" rel="stylesheet">
+	<link href="/public/tour_res/css/libs/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<!-- **********手机电脑登陆、注册界面——修改0*********** -->
+	<div class="login-bg"></div>
+	<div class="login-frame">
+		<div class="head"><a href="#close"><label class="close-btn"></label></a></div>
+		<div class="body">
+			<div class="tab-content">
+				<div id="tab-signin" class="tab-pane fade active in">
+					<div>
+						<h4 style="display:inline-block"><strong>登录</strong></h4>
+						<small class="pull-right">还没有账号？<a href="#signup" data-toggle="tab" role="tab" class="btn btn-default"><small>去注册<span class="glyphicon glyphicon-arrow-right"></span></small></a></small>
+					</div>
+					<ul class="list-unstyled">
+						<li>						
+					    <div class="input-group">
+					      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+					      <input class="form-control" type="email" placeholder="email" name="email">
+					    </div>
+						</li>
+						<li><br>				
+					    <div class="input-group">
+					      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+					      <input class="form-control" type="password" placeholder="password" name="password">
+					    </div>
+						</li>
+						<li class="checkbox">
+			      		<label>
+			         		<input id="remember_me" type="checkbox"> 记住我
+			      		</label>
+			      		</li>
+						<li>						
+					    <div id="btn-signin" class="btn btn-primary btn-block">登录
+					    </div>
+						</li>
+					</ul>
+				</div>
+				<div id="tab-signup" class="tab-pane fade">
+					<h4 style="display:inline-block"><strong>注册</strong></h4>
+					<small class="pull-right">已有账号？<a href="#signin" data-toggle="tab" role="tab" class="btn btn-default"><small>去登陆<span class="glyphicon glyphicon-arrow-right"></span></small></a></small>
+					<ul class="list-unstyled">
+						<li>						
+					    <div class="input-group">
+					      <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+					      <input class="form-control" type="email" placeholder="email" name="email">
+					    </div>
+						</li>
+						<li><br>					
+					    <div class="input-group">
+					      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+					      <input class="form-control" type="password" placeholder="password" name="password">
+					    </div>
+						</li>
+						<li><br>					
+					    <div class="input-group">
+					      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+					      <input class="form-control" type="password" placeholder="confirm password" name="confirm-password">
+					    </div>
+						</li>
+						<li><br>						
+					    <div id="btn-signup" class="btn btn-primary btn-block">注册
+					    </div>
+						</li>
+					</ul>
+				</div>
+			</div>	
+			<!-- 												
+			<div class="text-center">
+				<small>
+					<a href="#">忘记密码</a>	|
+					<a href="#">未收到确认信息？</a>
+				</small>
+			</div>	
+			 -->
+		</div>
+	</div>
+
+	<!--******载入部分js jQuery文件********-->
+	<script src="/public/tour_res/js/libs/jquery/2.1.3/jquery-2.1.3.min.js"></script>
+	<script src=""></script>
+	<script src="/public/javascripts/common.js"></script>
+	
+	<script>
+		$(function() {
+			var referer = '<%= referer %>';
+			
+			$('#btn-signin').click(function() {
+				var email = $('#tab-signin input[name="email"]').val();
+				if (email == '') {
+					alert('邮箱不能为空');
+					return ;
+				}
+				var password = $('#tab-signin input[name="password"]').val();
+				if (password == '') {
+					alert('密码不能为空');
+					return ;
+				}
+				$.ajax({
+					type: 'post',
+					url: '/tour/signin',
+					data: {
+						email: email,
+						password: password
+					},
+					dataType: 'json',
+					success: function(data) {
+						if (data.error) {
+							alert(data.error);
+						} else if (data.success) {
+							var rememberMe = $('#remember_me').is(':checked');
+							if (rememberMe) {
+								$.get('/tour/rememberMe', function(data) {
+									if (referer === 'undefined') {
+										window.location.href = '/tour';
+									} else {
+										window.location.href = referer;
+									}
+								}); 
+							} else {
+								if (referer === 'undefined') {
+									window.location.href = '/tour';
+								} else {
+									window.location.href = referer;
+								}
+							}
+						}
+					}
+				});
+			}); 
+			
+			$('#btn-signup').click(function() {
+				var email = $('#tab-signup input[name="email"]').val();
+				if (email == '') {
+					alert('邮箱不能为空');
+					return ;
+				}
+				var password = $('#tab-signup input[name="password"]').val();
+				if (password == '') {
+					alert('密码不能为空');
+					return ;
+				}
+				var repassword = $('#tab-signup input[name="confirm-password"]').val();
+				if (repassword == '') {
+					alert('确认密码不能为空');
+					return ;
+				}
+				if (password != repassword) {
+					alert('两次输入密码不一致');
+					return ;
+				}
+				$.ajax({
+					type: 'post',
+					url: '/tour/signup',
+					data: {
+						email: email,
+						password: password,
+						repassword: repassword
+					},
+					dataType: 'json',
+					success: function(data) {
+						if (data.error) {
+							alert(data.error);
+						} else if (data.success) {
+							alert(data.success);
+						}
+					}
+				});
+			}); 
+			
+			$('#tab-signin a[href="#signup"]').click(function(e) {
+				$('#tab-signin').removeClass('active').removeClass('in');
+				$('#tab-signup').addClass('active').addClass('in');
+			});
+			
+			$('#tab-signup a[href="#signin"]').click(function(e) {
+				$('#tab-signup').removeClass('active').removeClass('in');
+				$('#tab-signin').addClass('active').addClass('in');
+			});
+			
+			if (window.location.href.endWith('#signup')) {
+				$('#tab-signin a[href="#signup"]').trigger('click');
+			}
+			
+			$('a[href="#close"]').click(function(e) {
+				if (referer === 'undefined') {
+					window.location.href = '/tour';
+				} else {
+					window.location.href = referer;
+				}
+			});
+		});
+	</script>
+</body>
+</html>

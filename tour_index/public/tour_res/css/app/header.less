@@ -1,0 +1,145 @@
+@image: "../../img";
+@color: #5c5c5c;
+*{
+    margin: 0;
+    padding: 0;
+    background: no-repeat;
+    list-style: none;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: "方正兰亭简体", "HelveticaNeueLTPro-Md", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    background-color: #fff;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+a {
+    text-decoration: none;
+    color: @color; 
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.inblock {
+    display: inline-block;
+}
+.header {
+    width: 100%;
+    .nav {
+        margin: auto;
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        color: @color; 
+        li {
+            display: inline-block;
+            text-align: center;
+        }
+        .nav-logo {
+            font-size: 2em;
+            float: left;
+            margin: 20px 0px 20px 20px;
+        }
+        .nav-bar {
+            float: left;
+            overflow: hidden;
+            color: #5c5c5c;
+            .nav-active {
+                color: #d1332f;
+                border-bottom: 2px solid #d1332f;
+            }
+            .nav-home {
+                font-size: 1.5em;
+                padding: 24px 20px 20px 20px;
+            }
+            .nav-plan {
+                .nav-home
+            }
+            .nav-ticket {
+                .nav-home
+            }
+            .nav-hotel {
+                .nav-home
+            }
+            .nav-article {
+                .nav-home
+            }
+        }
+        .nav-login {
+            float: right;
+            padding: 10px 0px;
+            margin-right: 20px;
+            .nav-user-icon {
+                border: 1px solid #ccc;
+                width: 22px;
+                height: 22px;
+                padding: 8px;
+                margin-right: 15px;
+                border-radius: 22px;
+                background-image: url("@{image}/icon/icon-user.png");
+                background-size: 22px auto;
+                background-origin: content-box; 
+                -webkit-background-origin: content-box;
+                display: inline-block;
+                cursor: pointer;    
+            }
+            .nav-user-login {
+                font-size: 1.4em;
+                line-height: 2.6em;
+                vertical-align: bottom;
+                display: inline-block;
+            }
+            .nav-user-register {
+                .nav-user-login
+            }
+        }
+    }
+    .banners {
+        margin-top: 5px;
+        .banner {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    background-color: #efefef;
+    width: 100%;
+    height: 140px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 140px;
+}
+//轮播图片分页按钮
+.pagination {
+  position: absolute;
+  z-index: 20;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #555;
+  margin: 0 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-active-switch {
+  background: #fff;
+}
